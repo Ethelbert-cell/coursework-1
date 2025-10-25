@@ -53,6 +53,26 @@
             <button @click="removeFromCart(item)">Remove</button>
           </div>
         </div>
+        <button
+          @click="showCheckout = true"
+          v-if="!showCheckout && cart.length > 0"
+        >
+          Checkout
+        </button>
+        <div v-if="showCheckout">
+          <h2>Checkout</h2>
+          <form>
+            <p>
+              <label for="name">Name:</label>
+              <input id="name" v-model="name" />
+            </p>
+            <p>
+              <label for="phone">Phone:</label>
+              <input id="phone" v-model="phone" />
+            </p>
+            <button type="submit">Place Order</button>
+          </form>
+        </div>
       </div>
     </div>
     <script src="app.js"></script>

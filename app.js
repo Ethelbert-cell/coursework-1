@@ -87,6 +87,9 @@ new Vue({
     showcart: false,
     sortAttribute: "subject",
     sortOrder: "asc",
+    name: '',
+    phone: '',
+    showCheckout: false,
   },
   computed: {
     sortedLessons() {
