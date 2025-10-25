@@ -1,0 +1,39 @@
+body {
+    font-family: sans-serif;
+}
+
+.lessons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lesson {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}
+
+.lesson img {
+    max-width: 100%;
+}
+
+.cart {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+}
+
+.error {
+    color: red;
+}
