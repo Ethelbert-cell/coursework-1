@@ -12,7 +12,11 @@
       <button @click="showCart = !showCart">
         {{ showCart ? 'Back to Lessons' : 'Go to Cart (' + cart.length + ')' }}
       </button>
-      <div v-if="!showCart">
+      <div v-if="orderConfirmed">
+            <h1>{{ confirmationMessage }}</h1>
+            <button @click="orderConfirmed = false">Back to Lessons</button>
+        </div>
+        <div v-else-if="!showCart">
         <div class="sorting">
           <label for="sort-attribute">Sort by:</label>
           <select id="sort-attribute" v-model="sortAttribute">
@@ -61,7 +65,7 @@
         </button>
         <div v-if="showCheckout">
           <h2>Checkout</h2>
-          <form @submit.prevent="validateForm" novalidate>
+          <form @submit.prevent="submitOrder" novalidate>
             <p>
               <label for="name">Name:</label>
               <input id="name" v-model="name" />

@@ -92,6 +92,8 @@ new Vue({
     showCheckout: false,
     nameError: '',
     phoneError: '',
+    orderConfirmed: false,
+    confirmationMessage: '',
   },
   computed: {
     sortedLessons() {
@@ -133,6 +135,39 @@ new Vue({
                 valid = false;
             }
             return valid;
-        }
+        },
+        submitOrder() {
+            if (this.validateForm()) {
+                const order = {
+                    name: this.name,
+                    phone: this.phone,
+                    cart: this.cart
+                };
+                fetch('https://example.com/order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(order)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Something went wrong');
+                })
+                .then(data => {
+                    this.orderConfirmed = true;
+                    this.confirmationMessage = 'Your order has been placed successfully!';
+                    this.cart = [];
+                    this.name = '';
+                    this.phone = '';
+                    this.showCheckout = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        },
   },
 });
