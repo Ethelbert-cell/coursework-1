@@ -9,7 +9,15 @@
 </head>
 <body>
     <div id="app">
-
+        <div class="lessons">
+            <div v-for="lesson in lessons" class="lesson">
+                <img :src="lesson.image" alt="lesson.subject" width="100">
+                <h2>{{ lesson.subject }}</h2>
+                <p>{{ lesson.location }}</p>
+                <p>Price: £{{ lesson.price }}</p>
+                <p>Spaces: {{ lesson.spaces }}</p>
+            </div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
