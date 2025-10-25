@@ -61,14 +61,16 @@
         </button>
         <div v-if="showCheckout">
           <h2>Checkout</h2>
-          <form>
+          <form @submit.prevent="validateForm" novalidate>
             <p>
               <label for="name">Name:</label>
               <input id="name" v-model="name" />
+              <span v-if="nameError" class="error">{{ nameError }}</span>
             </p>
             <p>
               <label for="phone">Phone:</label>
               <input id="phone" v-model="phone" />
+              <span v-if="phoneError" class="error">{{ phoneError }}</span>
             </p>
             <button type="submit">Place Order</button>
           </form>

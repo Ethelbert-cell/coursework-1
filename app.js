@@ -90,6 +90,8 @@ new Vue({
     name: '',
     phone: '',
     showCheckout: false,
+    nameError: '',
+    phoneError: '',
   },
   computed: {
     sortedLessons() {
@@ -117,6 +119,20 @@ new Vue({
             this.cart.splice(index, 1);
             const lesson = this.lessons.find(lesson => lesson.id === item.id);
             lesson.spaces++;
+        },
+         validateForm() {
+            this.nameError = '';
+            this.phoneError = '';
+            let valid = true;
+            if (!/^[a-zA-Z\s]+$/.test(this.name)) {
+                this.nameError = 'Name must contain only letters.';
+                valid = false;
+            }
+            if (!/^\d+$/.test(this.phone)) {
+                this.phoneError = 'Phone must contain only numbers.';
+                valid = false;
+            }
+            return valid;
         }
   },
 });
