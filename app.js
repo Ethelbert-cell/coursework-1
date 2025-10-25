@@ -108,6 +108,12 @@ new Vue({
                 lesson.spaces--;
                 this.cart.push(lesson);
             }
+        },
+        removeCart(item) {
+            const index = this.cart.indexOf(item);
+            this.cart.splice(index, 1);
+            const lesson = this.lessons.find(lesson => lesson.id === item.id);
+            lesson.spaces++;
         }
   },
 });

@@ -50,6 +50,7 @@
             <h2>{{ item.subject }}</h2>
             <p>{{ item.location }}</p>
             <p>Price: £{{ item.price }}</p>
+            <button @click="removeFromCart(item)">Remove</button>
           </div>
         </div>
       </div>
