@@ -83,6 +83,7 @@ new Vue({
         image: "images/drama.png",
       },
     ],
+    cart: [],
     sortAttribute: "subject",
     sortOrder: "asc",
   },
@@ -97,6 +98,15 @@ new Vue({
         }
         return this.sortOrder === "asc" ? comparison : -comparison;
       });
+    },  
     },
+    
+    methods: {
+        addToCart(lesson) {
+            if (lesson.spaces > 0) {
+                lesson.spaces--;
+                this.cart.push(lesson);
+            }
+        }
   },
 });
