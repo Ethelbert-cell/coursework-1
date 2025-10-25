@@ -75,7 +75,11 @@ new Vue({
                 this.name = '';
                 this.phone = '';
                 this.showCheckout = false;
+                this.showCart = false;
             }
+        },
+        backToLessons() {
+            this.orderConfirmed = false;
         }
     }
 });
