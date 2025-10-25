@@ -2,16 +2,16 @@ new Vue({
     el: '#app',
     data: {
         lessons: [
-            { id: 1, subject: 'Mathematics', location: 'London', price: 100, spaces: 5, image: 'images/math.png' },
-            { id: 2, subject: 'English', location: 'London', price: 90, spaces: 5, image: 'images/english.png' },
-            { id: 3, subject: 'Science', location: 'Manchester', price: 110, spaces: 5, image: 'images/science.png' },
-            { id: 4, subject: 'History', location: 'Bristol', price: 80, spaces: 5, image: 'images/history.png' },
-            { id: 5, subject: 'Art', location: 'London', price: 120, spaces: 5, image: 'images/art.png' },
-            { id: 6, subject: 'Music', location: 'Manchester', price: 95, spaces: 5, image: 'images/music.png' },
-            { id: 7, subject: 'Geography', location: 'Bristol', price: 85, spaces: 5, image: 'images/geography.png' },
-            { id: 8, subject: 'Physical Education', location: 'London', price: 75, spaces: 5, image: 'images/pe.png' },
-            { id: 9, subject: 'Computer Science', location: 'Manchester', price: 130, spaces: 5, image: 'images/cs.png' },
-            { id: 10, subject: 'Drama', location: 'Bristol', price: 105, spaces: 5, image: 'images/drama.png' }
+            { id: 1, subject: 'Mathematics', location: 'London', price: 100, spaces: 5, image: 'images/math.jpg' },
+            { id: 2, subject: 'English', location: 'London', price: 90, spaces: 5, image: 'images/english.jpg' },
+            { id: 3, subject: 'Science', location: 'Manchester', price: 110, spaces: 5, image: 'images/science.jpg' },
+            { id: 4, subject: 'History', location: 'Bristol', price: 80, spaces: 5, image: 'images/history.jpg' },
+            { id: 5, subject: 'Art', location: 'London', price: 120, spaces: 5, image: 'images/art.jpg' },
+            { id: 6, subject: 'Music', location: 'Manchester', price: 95, spaces: 5, image: 'images/music.jpg' },
+            { id: 7, subject: 'Geography', location: 'Bristol', price: 85, spaces: 5, image: 'images/geography.jpg' },
+            { id: 8, subject: 'Physical Education', location: 'London', price: 75, spaces: 5, image: 'images/pe.jpg' },
+            { id: 9, subject: 'Computer Science', location: 'Manchester', price: 130, spaces: 5, image: 'images/cs.jpg' },
+            { id: 10, subject: 'Drama', location: 'Bristol', price: 105, spaces: 5, image: 'images/drama.jpg' }
         ],
         cart: [],
         showCart: false,
