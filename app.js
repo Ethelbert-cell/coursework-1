@@ -84,6 +84,7 @@ new Vue({
       },
     ],
     cart: [],
+    showcart: false,
     sortAttribute: "subject",
     sortOrder: "asc",
   },
@@ -100,7 +101,7 @@ new Vue({
       });
     },  
     },
-    
+
     methods: {
         addToCart(lesson) {
             if (lesson.spaces > 0) {
