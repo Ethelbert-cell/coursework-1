@@ -9,8 +9,25 @@
 </head>
 <body>
     <div id="app">
+        <div class="sorting">
+            <label for="sort-attribute">Sort by:</label>
+            <select id="sort-attribute" v-model="sortAttribute">
+                <option value="subject">Subject</option>
+                <option value="location">Location</option>
+                <option value="price">Price</option>
+                <option value="spaces">Spaces</option>
+            </select>
+            <label>
+                <input type="radio" value="asc" v-model="sortOrder">
+                Ascending
+            </label>
+            <label>
+                <input type="radio" value="desc" v-model="sortOrder">
+                Descending
+            </label>
+        </div>
         <div class="lessons">
-            <div v-for="lesson in lessons" class="lesson">
+            <div v-for="lesson in sortedLessons" class="lesson">
                 <img :src="lesson.image" alt="lesson.subject" width="100">
                 <h2>{{ lesson.subject }}</h2>
                 <p>{{ lesson.location }}</p>
