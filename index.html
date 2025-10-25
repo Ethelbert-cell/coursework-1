@@ -1,42 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>After School Classes</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
+      <button @click="showCart = !showCart">
+        {{ showCart ? 'Back to Lessons' : 'Go to Cart (' + cart.length + ')' }}
+      </button>
+      <div v-if="!showCart">
         <div class="sorting">
-            <label for="sort-attribute">Sort by:</label>
-            <select id="sort-attribute" v-model="sortAttribute">
-                <option value="subject">Subject</option>
-                <option value="location">Location</option>
-                <option value="price">Price</option>
-                <option value="spaces">Spaces</option>
-            </select>
-            <label>
-                <input type="radio" value="asc" v-model="sortOrder">
-                Ascending
-            </label>
-            <label>
-                <input type="radio" value="desc" v-model="sortOrder">
-                Descending
-            </label>
+          <label for="sort-attribute">Sort by:</label>
+          <select id="sort-attribute" v-model="sortAttribute">
+            <option value="subject">Subject</option>
+            <option value="location">Location</option>
+            <option value="price">Price</option>
+            <option value="spaces">Spaces</option>
+          </select>
+          <label>
+            <input type="radio" value="asc" v-model="sortOrder" />
+            Ascending
+          </label>
+          <label>
+            <input type="radio" value="desc" v-model="sortOrder" />
+            Descending
+          </label>
         </div>
         <div class="lessons">
-            <div v-for="lesson in sortedLessons" class="lesson">
-                <img :src="lesson.image" alt="lesson.subject" width="100">
-                <h2>{{ lesson.subject }}</h2>
-                <p>{{ lesson.location }}</p>
-                <p>Price: £{{ lesson.price }}</p>
-                <p>Spaces: {{ lesson.spaces }}</p>
-                <button @click="addToCart(lesson)" :disabled="lesson.spaces === 0">Add to Cart</button>
-            </div>
+          <div v-for="lesson in sortedLessons" class="lesson">
+            <img :src="lesson.image" alt="lesson.subject" width="100" />
+            <h2>{{ lesson.subject }}</h2>
+            <p>{{ lesson.location }}</p>
+            <p>Price: £{{ lesson.price }}</p>
+            <p>Spaces: {{ lesson.spaces }}</p>
+            <button @click="addToCart(lesson)" :disabled="lesson.spaces === 0">
+              Add to Cart
+            </button>
+          </div>
         </div>
+      </div>
+      <div v-else>
+        <h1>Shopping Cart</h1>
+        <div class="cart">
+          <div v-for="item in cart" class="cart-item">
+            <h2>{{ item.subject }}</h2>
+            <p>{{ item.location }}</p>
+            <p>Price: £{{ item.price }}</p>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
