@@ -47,7 +47,7 @@ new Vue({
                 });
             }
              // Sort the filtered lessons
-            return this.lessons.sort((a, b) => {
+            return filtered.sort((a, b) => {
                 let comparison = 0;
                 if (a[this.sortAttribute] > b[this.sortAttribute]) {
                     comparison = 1;
