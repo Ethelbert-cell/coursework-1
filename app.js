@@ -17,6 +17,8 @@ new Vue({
         showCart: false,
         sortAttribute: 'subject',
         sortOrder: 'asc',
+        // Holds the user's search input
+        searchQuery: '',
         name: '',
         phone: '',
         showCheckout: false,
@@ -26,7 +28,25 @@ new Vue({
         confirmationMessage: ''
     },
     computed: {
+         // A computed property that filters and sorts the lessons
         sortedLessons() {
+            // Start with the full list of lessons
+            let filtered = this.lessons;
+
+            // If there's a search query, filter the lessons
+            if (this.searchQuery) {
+                const query = this.searchQuery.toLowerCase();
+                filtered = this.lessons.filter(lesson => {
+                    // Check if the query matches any of the lesson's attributes
+                    return (
+                        lesson.subject.toLowerCase().includes(query) ||
+                        lesson.location.toLowerCase().includes(query) ||
+                        lesson.price.toString().includes(query) ||
+                        lesson.spaces.toString().includes(query)
+                    );
+                });
+            }
+             // Sort the filtered lessons
             return this.lessons.sort((a, b) => {
                 let comparison = 0;
                 if (a[this.sortAttribute] > b[this.sortAttribute]) {
